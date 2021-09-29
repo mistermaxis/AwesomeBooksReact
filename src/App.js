@@ -3,11 +3,12 @@ import NavBar from './NavBar';
 import Home from './Home';
 import Add from './Add';
 import Contact from './Contact';
+import Footer from './Footer';
 import { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 function App() {
-  const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     let list = JSON.parse(window.localStorage.getItem('books'));
@@ -19,19 +20,20 @@ function App() {
     <Router>
       <div className="App">
         <NavBar/>
-        <div className="content">
+        <main className="content">
           <Switch>
             <Route exact path="/">
-              <Home books={books} />
+              <Home books={books} setBooks={setBooks}/>
             </Route>
             <Route path="/add">
-              <Add books={books}/>
+              <Add books={books} setBooks={setBooks}/>
             </Route>
             <Route path="/contact">
               <Contact/>
             </Route>
           </Switch>
-        </div>
+        </main>
+        <Footer/>
       </div>
     </Router>
   );

@@ -1,24 +1,37 @@
-.content {
-  padding: 0 0.5rem;
+#root {
+  display: flex;
+  justify-content: center;
 }
 
-.nav-bar {
-  padding: 0 0.5rem;
+.App {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-bar {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   border: 0.2rem black solid;
+  padding: 0.5rem 1rem;
 }
 
 .nav-bar h2 {
   user-select: none;
+  margin: 0.75rem 0;
 }
 
 .nav-menu {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-menu a {
@@ -26,31 +39,115 @@
   padding: 0.4rem;
 }
 
+.nav-menu *:first-child {
+  padding-left: 0;
+}
+
 .header {
-  align-self: center;
   margin: 0.5rem 0;
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 90%;
 }
 
-.contact li {
-  list-style: none;
+.home > div {
+  margin: 1rem 0;
 }
 
-.add {
+.booklist {
+  border: 0.2rem black solid;
+  padding: 1.5rem 1rem;
+  align-self: stretch;
+}
+
+.booklist > * {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.add form {
-  display: flex;
-  flex-direction: column;
+.booklist > :not(:first-child) {
+  padding-top: 1rem;
+}
+
+.booklist span {
+  text-align: center;
+}
+
+.booklist button {
+  margin-top: 1rem;
+  width: fit-content;
 }
 
 .add * {
   display: block;
 }
 
+.add form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
 .add button {
   max-width: 4rem;
   align-self: flex-end;
 }
+
+form * {
+  margin-bottom: 1rem;
+}
+
+.contact p, ul * {
+  width: 88%; 
+}
+
+.contact p {
+  text-align: center;
+}
+
+.contact > ul {
+  margin-top: 0;
+}
+
+.contact li {
+  list-style: none;
+}
+
+footer {
+  padding: 1rem;
+  border: 0.2rem black solid;
+}
+
+@media only screen and (min-width: 480px) {
+  .booklist > * {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .booklist button {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    width: 70%;
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    border: 0.2rem black solid;
+    padding: 0 1rem;
+  }
+
+  .nav-bar h2 {
+    text-align: left; 
+  }
+} 
+
+@media only screen and (min-width: 992px) {
+  .App {
+    width: 40%;
+  }
+} 
